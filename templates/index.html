@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Meta Information for SEO -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>API Key Generator</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f9fafb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    h2 {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1d4ed8;
+    }
+    .api-key {
+      margin-top: 1rem;
+      background: #f3f4f6;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      font-family: monospace;
+      word-break: break-word;
+      position: relative;
+    }
+    #copy-btn {
+      margin-top: 0.5rem;
+      width: auto;
+      background: #10b981;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.9rem;
+    }
+    #copy-btn:hover {
+      background: #059669;
+    }
+    #copy-msg {
+      color: #16a34a;
+      font-size: 0.9rem;
+      margin-left: 0.5rem;
+    }
+    .error {
+      color: #dc2626;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+  #nexapytech {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6b7280; /* Tailwind gray-500 */
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+}
+#nexapytech strong {
+  color: #2563eb; /* Tailwind blue-600 */
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Generate API Key</h2>
+    <form id="signupform" method="POST" >
+      {% csrf_token %}
+      <input type="text" id="username" name="username" placeholder="Enter your app username" required />
+      <button type="submit">Generate Key</button>
+    </form>
+
+    <div id="result" class="api-key" style="display: none;">
+      <strong>Your API Key:</strong><br>
+      <span id="api-key-value"></span><br>
+      <button id="copy-btn">Copy</button>
+      <span id="copy-msg" style="display: none;">Copied!</span>
+    </div>
+
+    <div id="error" class="error"></div>
+
+    <p id="nexapytech">Powered by <strong>Nexapy Technologies 2025</strong></p>
+
+  </div>
+
+
+  <script>
+      const username = document.getElementById('username').value.trim();
+      const resultDiv = document.getElementById('result');
+      const errorDiv = document.getElementById('error');
+      const apiKeySpan = document.getElementById('api-key-value');
+      const copyMsg = document.getElementById('copy-msg');
+      resultDiv.style.display = 'none';
+      errorDiv.textContent = '';
+      copyMsg.style.display = 'none';
+      $(document).on('submit', '#signupform', function(e){
+                  e.preventDefault();
+                  var formData = new FormData(this)
+                  $.ajax({
+                      type:'POST',
+                      url:'api/signup',
+                      processData: false,
+                      contentType: false,
+                      data:  formData,
+
+              success: function(data){
+                  if ('success' in data){
+                      setTimeout(()=>{
+                          
+                           apiKeySpan.textContent = data.api_key;
+                           resultDiv.style.display = 'block';
+
+                       
+                      }, 1000)
+                  } else if ('error' in data) {
+                      setTimeout(()=>{
+
+                         errorDiv.textContent = data.error || "Something went wrong.";
+                         
+
+
+
+
+
+                      }, 1000)
+                      // Handle other responses or errors
+
+                  }
+
+
+              },
+
+
+              error:function(data){
+                  setTimeout(()=>{
+                  errorDiv.textContent = data.error || "Something went wrong.";
+
+                  }, 1000)
+
+
+
+              }
+
+
+
+
+
+              });
+
+
+              })
+
+
+        
+     
+
+    document.getElementById('copy-btn').addEventListener('click', function () {
+      const key = document.getElementById('api-key-value').innerText;
+      navigator.clipboard.writeText(key).then(() => {
+        const msg = document.getElementById('copy-msg');
+        msg.style.display = 'inline';
+        setTimeout(() => (msg.style.display = 'none'), 2000);
+      });
+    });
+  </script>
+
+</body>
+</html>

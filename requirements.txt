@@ -1,0 +1,7 @@
+Django
+djangorestframework
+djangorestframework-api-key
+python-dotenv
+python-decouple
+whitenoise
+pymysql
