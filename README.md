@@ -1,7 +1,6 @@
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-![Django](https://img.shields.io/badge/Django-092E20?style=flat&logo=django)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
-![CI/CD](https://img.shields.io/badge/CI/CD-Green?style=flat)
+![CI](https://github.com/nexapytech/expense-tracker-api/actions/workflows/python-tests.yml/badge.svg)
+
+
 # Nexpenz API  Backend for Personal Finance App
 
 ## 🛠 Tech Stack
@@ -82,6 +81,7 @@ cd Expense-Tracker-app
 docker build -t nexpenz .
 
 docker run -p 8000:8000 nexpenz
+
 
 
 
