@@ -52,21 +52,6 @@ This API uses API Key authentication:
 Or go to [Nexpenz API Signup](http://nexpenz.nexapytechnologies.com/api/signup) to generate a key.
 
 ---
-
-## ⚙️ Local Setup (Linux / Windows)
-### 1. Clone the repo
-git clone https://github.com/nexapytech/Expense-Tracker-app
-
-cd Expense-Tracker-app
-
-### 2. Docker Setup (Recommended)
-```bash
-docker build -t nexpenz .
-
-docker run -p 8000:8000 nexpenz
-
-
-
 ## 📦 Example API Usage
 **GET** `/api/transactions/`  
 **Header:** `X-API-KEY: your_api_key_here`  
@@ -77,4 +62,25 @@ docker run -p 8000:8000 nexpenz
 http://localhost:8000/download_nexpenz
 
 
+
+---
+
+## ⚙️ Local Setup (Linux / Windows)
 ### 1. Clone the repo
+git clone https://github.com/nexapytech/Expense-Tracker-app
+
+cd Expense-Tracker-app
+
+
+
+### 2. Docker Setup (Recommended)
+```bash
+docker build -t nexpenz .
+
+docker run -p 8000:8000 nexpenz
+
+
+
+
+
+
