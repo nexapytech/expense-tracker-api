@@ -74,7 +74,16 @@ http://localhost:8000/download_nexpenz
 git clone https://github.com/nexapytech/Expense-Tracker-app
 
 cd Expense-Tracker-app
+---
+## ⚙️ Make Commands
+To make your repo **easy to run and test**, we provide a Makefile:
+# Run the API locally
+make run
 
+# Run all tests
+make test
+
+---
 
 
 ### 2. Docker Setup (Recommended)
@@ -82,8 +91,6 @@ cd Expense-Tracker-app
 docker build -t nexpenz .
 
 docker run -p 8000:8000 nexpenz
-
-
 
 
 
