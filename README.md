@@ -1,34 +1,32 @@
-# Nexpenz API 💰📊
+# Nexpenz API  Backend for Personal Finance App
 
-**Nexpenz API** is a simple, fast, and secure backend API for a personal finance
-tracking mobile application.  
-It powers the Nexpenz Android app, enabling users to track income, expenses,
-and view financial summaries — without signup or ads.
+## 🛠 Tech Stack
+- **Language:** Python 3 
+- **Backend Framework:** Django  
+- **API Framework:** Django REST Framework  
+- **API Auth:** djangorestframework-api-key  
+- **Database:** MySQL, SQLite3  
+- **Containerization:** Docker & Docker Compose  
+- **CI/CD:** GitHub Actions  
+- **OS Tested On:** Linux (Ubuntu recommended)
+
+---
+
+## 🔥 Overview
+**Nexpenz API** is a simple, fast, and secure backend API for a personal finance tracking mobile application.  
+It powers the Nexpenz Android app, enabling users to track income, expenses, and view financial summaries — without signup or ads.
 
 ---
 
 ## 🚀 Features
-
-- ✅ Add income & expenses instantly
-- 📈 Monthly summaries & category-based analytics
-- 🧾 Full transaction history
-- 🌍 Multi-currency support
-- 🔐 API key authentication (no login/signup)
-- 🧡 100% free — no ads, no tracking
-- 🐳 Docker-ready
-- 🧪 CI-tested on Linux
-
----
-
-## 🛠️ Tech Stack
-
-- **Python 3.11**
-- **Django**
-- **Django REST Framework**
-- **djangorestframework-api-key**
-- **SQLite / PostgreSQL**
-- **Docker & Docker Compose**
-- **GitHub Actions (CI)**
+- ✅ Add income & expenses instantly  
+- 📈 Monthly summaries & category-based analytics  
+- 🧾 Full transaction history  
+- 🌍 Multi-currency support  
+- 🔐 API key authentication (no login/signup)  
+- 🧡 100% free — no ads, no tracking  
+- 🐳 Docker-ready  
+- 🧪 CI-tested on Linux  
 
 ---
 
@@ -44,45 +42,39 @@ and view financial summaries — without signup or ads.
 
 ---
 
-### API Authentication
+## 🔑 API Authentication
+This API uses API Key authentication:  
+1. Log in to Django Admin  
+2. Navigate to **API Keys**  
+3. Create a key  
+4. Copy it once (shown only once)  
 
-This API uses API Key authentication.
-- Create API Key
-- Log in to Django Admin
-- Navigate to API Keys
-- Create a key
--Copy it once (shown only once)
+Or go to [Nexpenz API Signup](http://nexpenz.nexapytechnologies.com/api/signup) to generate a key.
 
-or goto nexpenz.nexapytechnologies.com/api/signup  to generate a key
+---
 
 ## ⚙️ Local Setup (Linux / Windows)
-
-Follow these steps to run the project locally:
-
-
-
-
-api will be accessible at
-http://locahost:8000
-
-
-##  Example code
-GET /api/transactions/
-X-API-KEY: your_api_key_here
-
-
-## 1. DOWNLOAD APK FILE
-http://locahost:8000/downoad_nexpenz
-
 ### 1. Clone the repo
-
-```bash
 git clone https://github.com/nexapytech/Expense-Tracker-app
+
 cd Expense-Tracker-app
 
-### Docker Setup (Recommended)
+### 2. Docker Setup (Recommended)
+```bash
 docker build -t nexpenz .
+
 docker run -p 8000:8000 nexpenz
 
 
 
+## 📦 Example API Usage
+**GET** `/api/transactions/`  
+**Header:** `X-API-KEY: your_api_key_here`  
+
+---
+
+## 📱 Download APK
+http://localhost:8000/download_nexpenz
+
+
+### 1. Clone the repo
