@@ -1,4 +1,5 @@
-![CI](https://github.com/nexapytech/expense-tracker-api/actions/workflows/python-tests.yml/badge.svg)
+![CI](https://github.com/nexapytech/expense-tracker-api/actions/workflows/ci.yml/badge.svg)
+
 
 
 # Nexpenz API  Backend for Personal Finance App
@@ -81,6 +82,7 @@ cd Expense-Tracker-app
 docker build -t nexpenz .
 
 docker run -p 8000:8000 nexpenz
+
 
 
 
