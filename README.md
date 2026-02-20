@@ -57,9 +57,15 @@ Or go to [Nexpenz API Signup](http://nexpenz.nexapytechnologies.com/api/signup) 
 
 ---
 ## 📦 Example API Usage
-**GET** `/api/transactions/`  
-**Header:** `X-API-KEY: your_api_key_here`  
 
+##production 
+``` bash https://api.nexapytechnologies.com/
+
+api/get_transaction
+
+**GET** `api/get_transaction/`  
+**Header:** `X-API-KEY: your_api_key_here`  
+```
 ---
 
 ## 📱 Download APK
@@ -94,6 +100,7 @@ make test
 docker build -t nexpenz .
 
 docker run -p 8000:8000 nexpenz
+
 
 
 
